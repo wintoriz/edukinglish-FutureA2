@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edukinglish - Future & Technology Practice (A2)</title>
+    <title>Edukinglish Speaking Hub - Adaptive Placement Test (A1 - B2)</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -11,17 +11,19 @@
         
         body {
             font-family: 'Fredoka', 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #311B92 100%);
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #C026D3 100%);
             min-height: 100vh;
         }
 
-        .btn-bounce {
+        .option-btn {
             transition: all 0.2s ease-in-out;
         }
-        .btn-bounce:hover {
+
+        .option-btn:hover {
             transform: translateY(-2px);
         }
-        .btn-bounce:active {
+
+        .option-btn:active {
             transform: translateY(1px);
         }
 
@@ -40,126 +42,81 @@
 
     <canvas id="confetti-canvas"></canvas>
 
-    <!-- Main Container -->
-    <div class="bg-white rounded-3xl shadow-2xl w-full max-w-4xl overflow-hidden border-4 border-cyan-400 flex flex-col min-h-[650px] relative">
+    <!-- Main Card Container -->
+    <div class="bg-white rounded-3xl shadow-2xl w-full max-w-3xl overflow-hidden border-4 border-yellow-300 flex flex-col min-h-[620px] relative">
         
         <!-- Header -->
-        <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 p-4 sm:p-6 text-white text-center relative">
+        <header class="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 p-4 sm:p-6 text-white text-center relative">
             <div class="flex items-center justify-center space-x-2">
-                <span class="text-3xl sm:text-4xl">🤖</span>
-                <h1 class="text-2xl sm:text-3xl font-bold tracking-wide">Edukinglish <span class="text-cyan-300">Future & Tech Hub</span></h1>
+                <span class="text-3xl sm:text-4xl">👑</span>
+                <h1 class="text-2xl sm:text-3xl font-bold tracking-wide">Edukinglish <span class="text-yellow-300">Speaking Hub</span></h1>
             </div>
-            <p class="text-xs sm:text-sm font-semibold opacity-90 mt-1">Practice Unit: Future Tenses (Will • Going to • Might) - Level A2</p>
+            <p class="text-xs sm:text-sm font-semibold opacity-90 mt-1">Adaptive English Level Assessment (A1 to B2 - 100 Items)</p>
         </header>
 
-        <!-- Main Content Area -->
+        <!-- Dynamic Content Area -->
         <main class="p-4 sm:p-8 flex-grow flex flex-col justify-between" id="app-content">
 
-            <!-- Module Selection Screen -->
-            <div id="module-select-screen" class="flex flex-col flex-grow justify-between py-2">
-                <div class="text-center">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-indigo-900 mb-2">🚀 Choose a Module / Elige un Módulo</h2>
-                    <p class="text-gray-600 text-sm sm:text-base max-w-lg mx-auto mb-6">
-                        Explore the future of technology while mastering <b>will</b>, <b>be going to</b>, and <b>might</b> in affirmative, negative, and interrogative sentences!
-                    </p>
+            <!-- Welcome / Start Screen -->
+            <div id="start-screen" class="text-center py-6 flex flex-col items-center justify-center flex-grow">
+                <div class="text-6xl mb-4 animate-bounce">🚀</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-purple-700 mb-3">Welcome to the Adaptive Placement Test!</h2>
+                <p class="text-gray-600 text-base sm:text-lg max-w-md mb-6 leading-relaxed">
+                    This test automatically adjusts to your English level from **A1 (Beginner)** up to **B2 (Upper-Intermediate)**.
+                </p>
+
+                <div class="bg-purple-50 p-4 rounded-2xl border-2 border-purple-200 max-w-md w-full mb-6 text-left text-xs sm:text-sm text-purple-900 space-y-2">
+                    <p class="font-bold text-center text-base border-b pb-1 border-purple-200">⚙️ Rules & Features</p>
+                    <p>📈 <b>100 Progressive Questions:</b> A1 (1-25) ➔ A2 (26-50) ➔ B1 (51-75) ➔ B2 (76-100).</p>
+                    <p>⛔ <b>Smart Stop Rule:</b> The test ends if you get <b>3 wrong answers in a row</b>.</p>
+                    <p>👨‍🎓 <b>Content Transition:</b> A1/A2 is kid-friendly; B1/B2 switches to teen & adult topics (+15 years).</p>
+                    <p>🔊 <b>Audio Listening:</b> Click the sound button to hear English prompts.</p>
                 </div>
 
-                <!-- 4 Modules Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-2">
-                    
-                    <!-- Module 1 Card -->
-                    <div onclick="selectModule(0)" class="btn-bounce cursor-pointer bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-300 rounded-2xl p-5 hover:border-blue-500 shadow-md flex items-start space-x-4">
-                        <div class="text-4xl bg-blue-100 p-3 rounded-2xl">⚡</div>
-                        <div>
-                            <span class="text-xs font-bold bg-blue-200 text-blue-800 px-2 py-0.5 rounded-full">Module 1 (10 Items)</span>
-                            <h3 class="text-lg font-bold text-blue-950 mt-1">Be Going to: Plans & Intentions</h3>
-                            <p class="text-xs text-gray-600 mt-1">Affirmative, Negative, Interrogative + Visuals & Audio.</p>
-                        </div>
-                    </div>
-
-                    <!-- Module 2 Card -->
-                    <div onclick="selectModule(1)" class="btn-bounce cursor-pointer bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-300 rounded-2xl p-5 hover:border-purple-500 shadow-md flex items-start space-x-4">
-                        <div class="text-4xl bg-purple-100 p-3 rounded-2xl">🔮</div>
-                        <div>
-                            <span class="text-xs font-bold bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full">Module 2 (10 Items)</span>
-                            <h3 class="text-lg font-bold text-purple-950 mt-1">Will: Predictions & Instant Decisions</h3>
-                            <p class="text-xs text-gray-600 mt-1">Future tech predictions, won't, and question forms.</p>
-                        </div>
-                    </div>
-
-                    <!-- Module 3 Card -->
-                    <div onclick="selectModule(2)" class="btn-bounce cursor-pointer bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-2xl p-5 hover:border-emerald-500 shadow-md flex items-start space-x-4">
-                        <div class="text-4xl bg-emerald-100 p-3 rounded-2xl">🛰️</div>
-                        <div>
-                            <span class="text-xs font-bold bg-emerald-200 text-emerald-800 px-2 py-0.5 rounded-full">Module 3 (10 Items)</span>
-                            <h3 class="text-lg font-bold text-emerald-950 mt-1">Might: Future Possibility</h3>
-                            <p class="text-xs text-gray-600 mt-1">Uncertainty, might not, listening & tech vocabulary.</p>
-                        </div>
-                    </div>
-
-                    <!-- Module 4 Card -->
-                    <div onclick="selectModule(3)" class="btn-bounce cursor-pointer bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl p-5 hover:border-amber-500 shadow-md flex items-start space-x-4">
-                        <div class="text-4xl bg-amber-100 p-3 rounded-2xl">🧩</div>
-                        <div>
-                            <span class="text-xs font-bold bg-amber-200 text-amber-800 px-2 py-0.5 rounded-full">Module 4 (10 Items)</span>
-                            <h3 class="text-lg font-bold text-amber-950 mt-1">Mixed Future Challenge</h3>
-                            <p class="text-xs text-gray-600 mt-1">Unscramble sentences, Odd One Out & Reading Comprehension.</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="text-center mt-4">
-                    <p class="text-xs text-gray-500">Each module offers immediate feedback and sound effects for an immersive learning experience.</p>
-                </div>
+                <button id="btn-start" onclick="startQuiz()" class="bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold text-xl px-8 py-4 rounded-full shadow-lg transform transition hover:scale-105 active:scale-95 border-b-4 border-yellow-600">
+                    START DIAGNOSTIC 🌟
+                </button>
             </div>
 
             <!-- Quiz Screen -->
             <div id="quiz-screen" class="hidden flex-col flex-grow justify-between">
                 
-                <!-- Module Title & Progress Bar -->
+                <!-- Level Badge & Progress Bar -->
                 <div>
                     <div class="flex flex-wrap items-center justify-between mb-3 gap-2">
-                        <button onclick="returnToModules()" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
-                            <span>⬅️ Back to Modules</span>
-                        </button>
-                        <span id="module-badge" class="px-3 py-1 rounded-full text-xs sm:text-sm font-bold bg-blue-100 text-blue-700 border border-blue-300">
-                            Module 1 • Question 1 of 10
+                        <span id="level-badge" class="px-3 py-1 rounded-full text-xs sm:text-sm font-bold bg-blue-100 text-blue-700 border border-blue-300">
+                            A1 • Question 1 of 100
                         </span>
+                        <span id="question-tracker" class="text-xs sm:text-sm font-bold text-gray-500">
+                            Progress: 1 / 100
+                        </span>
+                    </div>
+
+                    <!-- Audience Transition Banner -->
+                    <div id="audience-banner" class="hidden mb-3 bg-purple-900 text-yellow-300 py-1.5 px-3 rounded-xl text-center text-xs font-bold shadow">
+                        🧑‍🎓 Intermediate Level Unlocked: Transitioning to Teen & Adult Topics (+15 Years)
                     </div>
 
                     <!-- Progress Bar -->
                     <div class="w-full bg-gray-200 h-3.5 rounded-full overflow-hidden p-0.5 border border-gray-300">
-                        <div id="progress-bar" class="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 h-full rounded-full transition-all duration-300 w-[10%]"></div>
+                        <div id="progress-bar" class="bg-gradient-to-r from-yellow-400 via-green-400 to-purple-500 h-full rounded-full transition-all duration-300 w-[1%]"></div>
                     </div>
                 </div>
 
-                <!-- Question Area -->
+                <!-- Question Card -->
                 <div class="my-4">
-                    
-                    <!-- Mechanic Type Indicator -->
-                    <div id="mechanic-tag" class="inline-block px-3 py-1 rounded-lg text-xs font-extrabold uppercase tracking-wider mb-3 bg-purple-100 text-purple-800 border border-purple-300">
-                        Multiple Choice
-                    </div>
-
                     <!-- Listening Box -->
-                    <div id="listening-box" class="hidden bg-cyan-50 border-2 border-cyan-200 rounded-2xl p-4 mb-4 text-center">
-                        <p class="text-xs font-bold text-cyan-700 uppercase tracking-wider mb-2">🎧 Listening Activity / Audio de Inglés</p>
-                        <button id="tts-button" onclick="speakListeningText()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2.5 px-6 rounded-full shadow inline-flex items-center space-x-2 text-sm sm:text-base">
-                            <span>🔊 Listen to Prompt / Escuchar</span>
+                    <div id="listening-box" class="hidden bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 mb-4 text-center">
+                        <p class="text-xs font-bold text-indigo-500 uppercase tracking-wider mb-2">🎧 Listening Prompt / Comprensión Auditiva</p>
+                        <button id="tts-button" onclick="speakListeningText()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-5 rounded-full shadow inline-flex items-center space-x-2 text-sm sm:text-base">
+                            <span>🔊 Listen / Escuchar</span>
                         </button>
                         <p id="teacher-script" class="text-xs text-gray-500 mt-2 italic"></p>
                     </div>
 
-                    <!-- Reading Passage Box -->
-                    <div id="reading-box" class="hidden bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 mb-4 text-left">
-                        <p class="text-xs font-bold text-amber-800 uppercase tracking-wider mb-1">📖 Short Reading / Lectura Corta</p>
-                        <p id="reading-text" class="text-sm text-gray-800 leading-relaxed italic font-serif bg-white p-3 rounded-xl border border-amber-200"></p>
-                    </div>
-
-                    <!-- Visual Card (Big Emoji) -->
-                    <div id="visual-card" class="hidden bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 mb-4 text-center">
-                        <div id="visual-emoji" class="text-6xl sm:text-7xl">🤖</div>
+                    <!-- Visual Card (Big Emoji/Image representation for initial A1 questions) -->
+                    <div id="visual-card" class="hidden bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 mb-4 text-center">
+                        <div id="visual-emoji" class="text-7xl sm:text-8xl">🐱</div>
                     </div>
 
                     <!-- Question Text -->
@@ -167,69 +124,111 @@
                         Question text goes here...
                     </h3>
 
-                    <!-- Unscramble Word Bank (Special Mechanic) -->
-                    <div id="unscramble-container" class="hidden mb-4">
-                        <div id="unscramble-slots" class="min-h-[50px] p-3 bg-indigo-50 border-2 border-dashed border-indigo-300 rounded-2xl mb-3 flex flex-wrap gap-2 items-center justify-start text-indigo-900 font-bold">
-                            <!-- Selected words go here -->
-                        </div>
-                        <div id="unscramble-bank" class="flex flex-wrap gap-2 justify-center">
-                            <!-- Clickable word chips -->
-                        </div>
-                    </div>
-
-                    <!-- Standard Options Grid -->
+                    <!-- Options Grid (Shuffled Order) -->
                     <div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <!-- Dynamic Option Buttons -->
                     </div>
-
-                    <!-- Feedback Box -->
-                    <div id="feedback-box" class="hidden mt-4 p-3 rounded-xl text-center font-bold text-sm"></div>
                 </div>
 
                 <!-- Navigation Controls -->
-                <div class="flex justify-between items-center mt-2 border-t pt-4 border-gray-100">
+                <div class="flex justify-between items-center mt-4 border-t pt-4 border-gray-100">
                     <button id="prev-btn" onclick="previousQuestion()" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-xl font-semibold text-sm transition disabled:opacity-40 disabled:cursor-not-allowed">
                         ⬅️ Previous
                     </button>
-                    <button id="next-btn" onclick="nextQuestion()" disabled class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm transition shadow disabled:opacity-50 disabled:cursor-not-allowed">
+                    <button id="next-btn" onclick="nextQuestion()" disabled class="px-6 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold text-sm transition shadow disabled:opacity-50 disabled:cursor-not-allowed">
                         Next ➡️
                     </button>
                 </div>
             </div>
 
-            <!-- Module Results Screen -->
+            <!-- Results Screen -->
             <div id="results-screen" class="hidden text-center py-4 flex-col justify-between flex-grow">
                 <div>
-                    <div class="text-5xl mb-2">🏆</div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-indigo-900">Module Completed!</h2>
-                    <p id="module-result-title" class="text-sm font-semibold text-gray-500 mb-4">Future Tenses Practice Report</p>
+                    <div class="text-5xl mb-2">🎉</div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-purple-800">Diagnostic Complete!</h2>
+                    <p id="stop-reason" class="text-xs sm:text-sm text-gray-500 mb-4">Official Edukinglish Assessment Report</p>
 
-                    <!-- Score Box -->
-                    <div class="bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50 border-2 border-indigo-200 rounded-2xl p-6 mb-6 max-w-md mx-auto">
-                        <div class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Module Score</div>
-                        <div id="final-score" class="text-4xl sm:text-5xl font-extrabold text-indigo-950 my-2">8 / 10</div>
-                        <div id="feedback-badge" class="inline-block px-4 py-1.5 rounded-full text-sm font-bold bg-green-400 text-green-950 shadow mt-1">
-                            Great Job! Master of the Future!
-                        </div>
+                    <!-- Student Information Box -->
+                    <div class="bg-yellow-50 border-2 border-yellow-300 rounded-2xl p-4 mb-4 text-left max-w-lg mx-auto">
+                        <label class="block text-xs font-bold text-purple-900 mb-1">Student Name / Nombre del Alumno:</label>
+                        <input type="text" id="student-name" placeholder="Ej. Mateo García" class="w-full px-3 py-2 rounded-xl border border-yellow-400 text-sm focus:outline-none focus:ring-2 focus:ring-purple-600 mb-2">
+                        
+                        <label class="block text-xs font-bold text-purple-900 mb-1">Teacher WhatsApp (with country code):</label>
+                        <input type="text" id="teacher-phone" value="+522211620366" placeholder="Ej. +5212223334455" class="w-full px-3 py-2 rounded-xl border border-yellow-400 text-sm focus:outline-none focus:ring-2 focus:ring-purple-600 mb-2">
+
+                        <label class="block text-xs font-bold text-purple-900 mb-1">Destination Email / Correo Destino:</label>
+                        <input type="email" id="teacher-email" value="edukinglish@gmail.com" placeholder="Ej. profesores@edukinglish.com" class="w-full px-3 py-2 rounded-xl border border-yellow-400 text-sm focus:outline-none focus:ring-2 focus:ring-purple-600">
                     </div>
 
-                    <!-- Student Name & Teacher Contact -->
-                    <div class="bg-yellow-50 border-2 border-yellow-300 rounded-2xl p-4 mb-6 text-left max-w-lg mx-auto space-y-2">
-                        <label class="block text-xs font-bold text-purple-900">Student Name / Nombre del Alumno:</label>
-                        <input type="text" id="student-name" placeholder="Ej. Camila Ruiz" class="w-full px-3 py-2 rounded-xl border border-yellow-400 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                    <!-- Main Level Card -->
+                    <div class="bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-2xl p-4 sm:p-6 mb-6">
+                        <div class="text-xs sm:text-sm font-bold text-purple-600 uppercase tracking-wide">Placement Diagnosis / Nivel Evaluado</div>
+                        <div id="final-level" class="text-3xl sm:text-4xl font-extrabold text-purple-900 my-2">Level A2 (Elementary)</div>
+                        <div id="final-score-text" class="text-sm font-bold text-gray-600">Questions Answered: 45 / 100 • Total Score: 38/45</div>
+                        <p id="placement-desc" class="text-xs sm:text-sm text-gray-600 mt-3 max-w-lg mx-auto">
+                            The student demonstrates solid grasp of elementary grammar and basic vocabulary.
+                        </p>
+                    </div>
+
+                    <!-- Breakdown by Level -->
+                    <div class="text-left bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-6 space-y-3">
+                        <h4 class="font-bold text-gray-700 text-sm border-b pb-1 border-gray-200">Level Performance Breakdown:</h4>
+                        
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-blue-700">A1 (Beginner - Kids)</span>
+                                <span id="lvl-a1-score">0/25</span>
+                            </div>
+                            <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                                <div id="lvl-a1-bar" class="bg-blue-500 h-2 rounded-full w-0 transition-all duration-500"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-green-700">A2 (Elementary - Kids/Teens)</span>
+                                <span id="lvl-a2-score">0/25</span>
+                            </div>
+                            <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                                <div id="lvl-a2-bar" class="bg-green-500 h-2 rounded-full w-0 transition-all duration-500"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-orange-700">B1 (Intermediate - Teens/Adults)</span>
+                                <span id="lvl-b1-score">0/25</span>
+                            </div>
+                            <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                                <div id="lvl-b1-bar" class="bg-orange-500 h-2 rounded-full w-0 transition-all duration-500"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-purple-700">B2 (Upper-Intermediate - Teens/Adults)</span>
+                                <span id="lvl-b2-score">0/25</span>
+                            </div>
+                            <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                                <div id="lvl-b2-bar" class="bg-purple-500 h-2 rounded-full w-0 transition-all duration-500"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Action Buttons -->
+                <!-- Action & Sharing Buttons -->
                 <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3">
-                    <button onclick="sendModuleWhatsApp()" class="px-5 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow transition flex items-center justify-center space-x-1">
-                        <span>📲 Send Score to WhatsApp</span>
+                    <button onclick="sendToWhatsApp()" class="px-5 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow transition flex items-center justify-center space-x-1">
+                        <span>📲 Send to WhatsApp</span>
                     </button>
-                    <button onclick="returnToModules()" class="px-5 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow transition">
-                        🚀 Choose Another Module
+                    <button onclick="sendByEmail()" class="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow transition flex items-center justify-center space-x-1">
+                        <span>✉️ Send by Email</span>
                     </button>
-                    <button onclick="restartModule()" class="px-4 py-3 bg-yellow-400 hover:bg-yellow-300 text-purple-900 rounded-xl font-bold text-xs sm:text-sm shadow transition border-b-2 border-yellow-600">
-                        🔄 Retry Module
+                    <button onclick="printReport()" class="px-4 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-xl font-bold text-xs sm:text-sm shadow transition">
+                        🖨️ PDF / Print
+                    </button>
+                    <button onclick="restartQuiz()" class="px-4 py-3 bg-yellow-400 hover:bg-yellow-300 text-purple-900 rounded-xl font-bold text-xs sm:text-sm shadow transition border-b-2 border-yellow-600">
+                        🔄 Restart
                     </button>
                 </div>
             </div>
@@ -238,677 +237,435 @@
         
         <!-- Footer -->
         <footer class="bg-gray-100 p-3 text-center text-xs text-gray-500 border-t border-gray-200">
-            Edukinglish Speaking Hub © Future Tenses & Tech Practice Engine (A2)
+            Edukinglish Speaking Hub © Adaptive Placement Test Engine
         </footer>
     </div>
 
     <!-- JavaScript Application Logic -->
     <script>
-        // 4 Modules Database (10 items each = 40 items total)
-        const modulesData = [
-            // MODULE 1: Be Going to (Plans & Intentions)
-            {
-                title: "Module 1: Be Going to (Plans & Intentions)",
-                color: "bg-blue-100 text-blue-700 border-blue-300",
-                questions: [
-                    {
-                        type: "multiple",
-                        mechanic: "Affirmative Plan",
-                        visualEmoji: "📱",
-                        question: "Look at the emoji. Complete: 'I ___ buy a new smartphone tomorrow.'",
-                        options: ["am going to", "is going to", "are going to", "will to"],
-                        answer: "am going to"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Negative Plan",
-                        question: "Complete the negative sentence: 'We ___ play video games tonight because we have homework.'",
-                        options: ["aren't going to", "isn't going to", "am not going to", "won't to"],
-                        answer: "aren't going to"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Interrogative Plan",
-                        question: "Choose the correct question: '___ you going to download the new computer app?'",
-                        options: ["Are", "Is", "Do", "Will"],
-                        answer: "Are"
-                    },
-                    {
-                        type: "listening",
-                        mechanic: "Listening Comprehension",
-                        listeningText: "She is going to study robotics at university next month.",
-                        teacherScript: "Listen: 'She is going to study robotics at university next month.'",
-                        question: "What is she going to study?",
-                        options: ["Robotics", "Video game design", "Computer repair", "Cybersecurity"],
-                        answer: "Robotics"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Third Person Plan",
-                        visualEmoji: "💻",
-                        question: "Complete: 'My brother ___ fix his laptop this afternoon.'",
-                        options: ["is going to", "are going to", "am going to", "going to"],
-                        answer: "is going to"
-                    },
-                    {
-                        type: "unscramble",
-                        mechanic: "Unscramble Sentence",
-                        question: "Unscramble the future plan sentence:",
-                        words: ["They", "are", "going", "to", "build", "a", "robot."],
-                        answer: "They are going to build a robot."
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Negative Intent",
-                        question: "Complete: 'He ___ sell his tablet. He loves using it!'",
-                        options: ["isn't going to", "aren't going to", "not going to", "don't going to"],
-                        answer: "isn't going to"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Question Form",
-                        question: "Complete the question: 'What ___ your parents going to buy for your birthday?'",
-                        options: ["are", "is", "do", "will"],
-                        answer: "are"
-                    },
-                    {
-                        type: "oddout",
-                        mechanic: "Odd One Out",
-                        question: "Which word does NOT belong to tech plans?",
-                        options: ["laptop", "tablet", "dinosaur", "smartwatch"],
-                        answer: "dinosaur"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Future Time Expression",
-                        question: "Complete: 'My sister is going to start her coding course ___.'",
-                        options: ["next week", "yesterday", "last year", "ago"],
-                        answer: "next week"
-                    }
-                ]
-            },
+        // 100 Progressive Questions Database (A1 to B2)
+        const rawQuestions = [
+            // A1 LEVEL (Questions 1 to 25) - Visuals & Math included
+            { level: 'A1', visualEmoji: '🐱', question: "What animal is this?", options: ["cat", "dog", "elephant", "lion"], answer: "cat" },
+            { level: 'A1', visualEmoji: '☀️', question: "Look at the image. What is it?", options: ["sun", "moon", "cloud", "star"], answer: "sun" },
+            { level: 'A1', visualEmoji: '🚗', question: "What vehicle is displayed?", options: ["car", "bicycle", "airplane", "boat"], answer: "car" },
+            { level: 'A1', visualEmoji: '🍕', question: "Identify this food:", options: ["pizza", "apple", "ice cream", "bread"], answer: "pizza" },
+            { level: 'A1', question: "Solve the operation: 3 + 5 =", options: ["eight", "six", "seven", "nine"], answer: "eight" },
+            { level: 'A1', question: "Solve the operation: 10 - 4 =", options: ["six", "five", "seven", "four"], answer: "six" },
+            { level: 'A1', question: "Solve the operation: 6 × 2 =", options: ["twelve", "ten", "fourteen", "eight"], answer: "twelve" },
+            { level: 'A1', question: "Solve the operation: 15 ÷ 3 =", options: ["five", "three", "four", "six"], answer: "five" },
+            { level: 'A1', listeningText: "The blue pen is under the red book.", teacherScript: "Listen: 'The blue pen is under the red book.'", question: "Where is the pen?", options: ["Under the red book", "On the table", "Inside the bag", "Next to the ruler"], answer: "Under the red book" },
+            { level: 'A1', question: "Complete: 'My brother ___ 8 years old.'", options: ["is", "are", "am", "have"], answer: "is" },
+            { level: 'A1', question: "Select the opposite of 'big':", options: ["small", "tall", "heavy", "fast"], answer: "small" },
+            { level: 'A1', question: "Complete: 'I have two eyes and one ___.'", options: ["nose", "hand", "leg", "foot"], answer: "nose" },
+            { level: 'A1', question: "Which color do you get when you mix red and yellow?", options: ["orange", "purple", "green", "pink"], answer: "orange" },
+            { level: 'A1', question: "Complete: 'They ___ playing football in the garden now.'", options: ["are", "is", "am", "be"], answer: "are" },
+            { level: 'A1', question: "Select the day that comes after Monday:", options: ["Tuesday", "Sunday", "Wednesday", "Friday"], answer: "Tuesday" },
+            { level: 'A1', listeningText: "She likes eating yellow bananas for breakfast.", teacherScript: "Listen: 'She likes eating yellow bananas for breakfast.'", question: "What does she eat for breakfast?", options: ["Bananas", "Apples", "Sandwiches", "Cereal"], answer: "Bananas" },
+            { level: 'A1', question: "Complete: 'Can you ___ me, please? I need help.'", options: ["help", "helping", "helped", "to help"], answer: "help" },
+            { level: 'A1', question: "What do you use to open a locked door?", options: ["a key", "a book", "a shoe", "a pencil"], answer: "a key" },
+            { level: 'A1', question: "Complete: 'There ___ a big apple on the table.'", options: ["is", "are", "be", "were"], answer: "is" },
+            { level: 'A1', question: "Which animal produces milk?", options: ["cow", "snake", "duck", "frog"], answer: "cow" },
+            { level: 'A1', question: "Complete: 'She ___ speak English very well.'", options: ["can", "is", "have", "are"], answer: "can" },
+            { level: 'A1', question: "What is the plural of 'child'?", options: ["children", "childs", "childrens", "childes"], answer: "children" },
+            { level: 'A1', question: "Complete: 'We live ___ Mexico City.'", options: ["in", "on", "at", "under"], answer: "in" },
+            { level: 'A1', question: "Select the word for a place where you borrow books:", options: ["library", "hospital", "supermarket", "bakery"], answer: "library" },
+            { level: 'A1', question: "Complete: 'He doesn't ___ ice cream.'", options: ["like", "likes", "liked", "liking"], answer: "like" },
 
-            // MODULE 2: Will (Predictions & Instant Decisions)
-            {
-                title: "Module 2: Will & Won't (Predictions)",
-                color: "bg-purple-100 text-purple-700 border-purple-300",
-                questions: [
-                    {
-                        type: "multiple",
-                        mechanic: "Future Prediction",
-                        visualEmoji: "🛸",
-                        question: "Complete the tech prediction: 'In 2050, flying cars ___ be everywhere.'",
-                        options: ["will", "are going", "might to", "is"],
-                        answer: "will"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Negative Prediction",
-                        question: "Complete: 'I think people ___ use paper books in the future.'",
-                        options: ["won't", "don't will", "will not to", "aren't"],
-                        answer: "won't"
-                    },
-                    {
-                        type: "listening",
-                        mechanic: "Listening Prediction",
-                        listeningText: "Don't worry about the broken screen. I will help you fix it now.",
-                        teacherScript: "Listen: 'Don't worry about the broken screen. I will help you fix it now.'",
-                        question: "What is the speaker offering?",
-                        options: ["To help fix the broken screen", "To buy a new phone", "To call a teacher", "To close the laptop"],
-                        answer: "To help fix the broken screen"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Instant Decision",
-                        question: "The phone is ringing! - 'I ___ answer it!'",
-                        options: ["will", "am going", "might to", "am"],
-                        answer: "will"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Question Form",
-                        question: "Complete: '___ robots do all our household chores in 20 years?'",
-                        options: ["Will", "Are", "Do", "Is"],
-                        answer: "Will"
-                    },
-                    {
-                        type: "unscramble",
-                        mechanic: "Unscramble Prediction",
-                        question: "Unscramble the future prediction:",
-                        words: ["AI", "will", "change", "our", "lives."],
-                        answer: "AI will change our lives."
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Spontaneous Offer",
-                        question: "It's cold in the computer lab. - 'I ___ close the window.'",
-                        options: ["will", "going to", "was", "am"],
-                        answer: "will"
-                    },
-                    {
-                        type: "oddout",
-                        mechanic: "Odd One Out",
-                        question: "Which verb does NOT express future prediction?",
-                        options: ["will predict", "won't happen", "will transform", "swam yesterday"],
-                        answer: "swam yesterday"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Negative Form",
-                        question: "What is the short form of 'will not'?",
-                        options: ["won't", "willn't", "wants", "don't"],
-                        answer: "won't"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Tech Prediction",
-                        visualEmoji: "🔋",
-                        question: "Complete: 'Electric battery tech ___ improve next year.'",
-                        options: ["will", "is will", "are", "going"],
-                        answer: "will"
-                    }
-                ]
-            },
+            // A2 LEVEL (Questions 26 to 50)
+            { level: 'A2', question: "Past tense: 'Yesterday, I ___ a great movie with my brother.'", options: ["watched", "watch", "watching", "watches"], answer: "watched" },
+            { level: 'A2', question: "Irregular verb: 'She ___ to London two years ago.'", options: ["went", "go", "gone", "going"], answer: "went" },
+            { level: 'A2', listeningText: "Toby rides his red bicycle to school every morning at 7:30.", teacherScript: "Listen: 'Toby rides his red bicycle to school every morning at 7:30.'", question: "How does Toby go to school?", options: ["By bicycle", "On foot", "By bus", "By car"], answer: "By bicycle" },
+            { level: 'A2', question: "Comparative: 'An elephant is ___ than a horse.'", options: ["bigger", "more big", "biggest", "as big"], answer: "bigger" },
+            { level: 'A2', question: "Future plans: 'Next weekend, we ___ visit our grandparents.'", options: ["are going to", "going", "will to", "is going"], answer: "are going to" },
+            { level: 'A2', question: "Complete: 'Do you enjoy ___ books before bedtime?'", options: ["reading", "read", "to reading", "reads"], answer: "reading" },
+            { level: 'A2', question: "Quantifiers: 'How ___ water do you drink every day?'", options: ["much", "many", "few", "any"], answer: "much" },
+            { level: 'A2', question: "Quantifiers: 'There are ___ apples in the fridge.'", options: ["a few", "a little", "much", "any"], answer: "a few" },
+            { level: 'A2', question: "Time preposition: 'My birthday is ___ October.'", options: ["in", "on", "at", "by"], answer: "in" },
+            { level: 'A2', question: "Time preposition: 'The English class starts ___ 9 o'clock.'", options: ["at", "in", "on", "for"], answer: "at" },
+            { level: 'A2', listeningText: "The sky was dark, so Sarah took her umbrella before leaving.", teacherScript: "Listen: 'The sky was dark, so Sarah took her umbrella before leaving.'", question: "Why did Sarah take an umbrella?", options: ["Because the sky was dark", "Because it was hot", "Because she was lost", "Because it was morning"], answer: "Because the sky was dark" },
+            { level: 'A2', question: "Possessive pronoun: 'This phone belongs to Sarah. It is ___.'", options: ["hers", "her", "she", "herself"], answer: "hers" },
+            { level: 'A2', question: "Superlative: 'Mount Everest is the ___ mountain in the world.'", options: ["highest", "higher", "most high", "high"], answer: "highest" },
+            { level: 'A2', question: "Frequency adverbs: 'He ___ drinks coffee because he prefers tea.'", options: ["rarely", "always", "every day", "usually"], answer: "rarely" },
+            { level: 'A2', question: "Complete: 'What ___ you do last weekend?'", options: ["did", "do", "does", "done"], answer: "did" },
+            { level: 'A2', question: "Vocabulary: 'A doctor works in a hospital, while a chef works in a ___.'", options: ["restaurant", "library", "airport", "bank"], answer: "restaurant" },
+            { level: 'A2', question: "Complete: 'If it rains tomorrow, we ___ stay home.'", options: ["will", "would", "did", "are"], answer: "will" },
+            { level: 'A2', question: "Pronouns: 'I saw Peter yesterday, but I didn't speak to ___.'", options: ["him", "his", "he", "himself"], answer: "him" },
+            { level: 'A2', question: "Modal obligation: 'Students ___ wear a uniform at this school.'", options: ["must", "can", "might", "could"], answer: "must" },
+            { level: 'A2', question: "Complete: 'She was born ___ July 14th, 2010.'", options: ["on", "in", "at", "from"], answer: "on" },
+            { level: 'A2', question: "Complete: 'I have known him ___ 2018.'", options: ["since", "for", "during", "until"], answer: "since" },
+            { level: 'A2', question: "Complete: 'This computer is ___ expensive than that one.'", options: ["more", "most", "much", "as"], answer: "more" },
+            { level: 'A2', question: "Vocabulary: 'What do you call the daughter of your brother?'", options: ["niece", "nephew", "cousin", "aunt"], answer: "niece" },
+            { level: 'A2', question: "Past continuous: 'At 8 PM yesterday, I ___ watching television.'", options: ["was", "were", "am", "been"], answer: "was" },
+            { level: 'A2', question: "Conjunctions: 'She studied hard, ___ she passed the exam easily.'", options: ["so", "because", "but", "although"], answer: "so" },
 
-            // MODULE 3: Might (Future Possibility & Uncertainty)
-            {
-                title: "Module 3: Might (Possibility)",
-                color: "bg-emerald-100 text-emerald-700 border-emerald-300",
-                questions: [
-                    {
-                        type: "multiple",
-                        mechanic: "Uncertainty",
-                        visualEmoji: "🌧️",
-                        question: "Look at the dark clouds. 'It ___ rain, so I should take my umbrella.'",
-                        options: ["might", "will definitely", "am going to", "must to"],
-                        answer: "might"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Possibility",
-                        question: "Complete: 'I'm not sure, but we ___ visit the technology museum this weekend.'",
-                        options: ["might", "are", "will to", "do"],
-                        answer: "might"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Negative Possibility",
-                        question: "Complete: 'Take your charger. The drone battery ___ not last the whole afternoon.'",
-                        options: ["might", "won't to", "isn't", "don't"],
-                        answer: "might"
-                    },
-                    {
-                        type: "listening",
-                        mechanic: "Listening Possibility",
-                        listeningText: "Alex might buy a VR headset if it is on sale next Friday.",
-                        teacherScript: "Listen: 'Alex might buy a VR headset if it is on sale next Friday.'",
-                        question: "Is Alex 100% sure he will buy the VR headset?",
-                        options: ["No, it is only a possibility", "Yes, he already bought it", "No, he hates VR headsets", "Yes, definitely"],
-                        answer: "No, it is only a possibility"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Verb Base Form",
-                        question: "Complete: 'She might ___ a new drone for her video project.'",
-                        options: ["use", "using", "to use", "used"],
-                        answer: "use"
-                    },
-                    {
-                        type: "unscramble",
-                        mechanic: "Unscramble Sentence",
-                        question: "Unscramble the sentence of possibility:",
-                        words: ["We", "might", "travel", "to", "Mars", "one", "day."],
-                        answer: "We might travel to Mars one day."
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Tech Uncertainty",
-                        visualEmoji: "👓",
-                        question: "Complete: 'Smart glasses ___ replace smartphones in ten years, but nobody knows.'",
-                        options: ["might", "are going", "won't to", "did"],
-                        answer: "might"
-                    },
-                    {
-                        type: "oddout",
-                        mechanic: "Odd One Out",
-                        question: "Which modal verb expresses 50% probability/possibility?",
-                        options: ["might", "may", "could", "must definitely"],
-                        answer: "must definitely"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Negative Form",
-                        question: "Select the correct negative structure for possibility:",
-                        options: ["might not", "mighten't", "don't might", "not might"],
-                        answer: "might not"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Context Choice",
-                        question: "Person A: 'Are you coming to the robotics club?' Person B: 'I ___ come, but I have a dentist appointment.'",
-                        options: ["might", "will definitely", "am going to", "must to"],
-                        answer: "might"
-                    }
-                ]
-            },
+            // B1 LEVEL (Questions 51 to 75 - Teens & Adults)
+            { level: 'B1', question: "Present Perfect: 'I ___ live in London, but now I live in Paris.'", options: ["used to", "use to", "was used", "am used to"], answer: "used to" },
+            { level: 'B1', question: "Present Perfect Continuous: 'How long ___ learning English?'", options: ["have you been", "are you", "did you", "had you"], answer: "have you been" },
+            { level: 'B1', listeningText: "Passengers on flight 402, please proceed to gate 12 for immediate boarding.", teacherScript: "Listen: 'Passengers on flight 402, please proceed to gate 12 for immediate boarding.'", question: "Where should passengers go?", options: ["Gate 12", "Flight 402", "Ticket counter", "Baggage claim"], answer: "Gate 12" },
+            { level: 'B1', question: "Second Conditional: 'If I ___ a million dollars, I would buy a house.'", options: ["won", "win", "have won", "would win"], answer: "won" },
+            { level: 'B1', question: "Passive voice: 'This novel ___ written by Gabriel García Márquez.'", options: ["was", "is", "were", "has"], answer: "was" },
+            { level: 'B1', question: "Phrasal verb: 'Please remember to ___ your shoes before entering the house.'", options: ["take off", "take out", "turn off", "get off"], answer: "take off" },
+            { level: 'B1', question: "Modal advice: 'You look exhausted. You ___ take a short rest.'", options: ["should", "mustn't", "would", "need"], answer: "should" },
+            { level: 'B1', question: "Reported speech: 'He told me that he ___ busy that day.'", options: ["was", "is", "has been", "will be"], answer: "was" },
+            { level: 'B1', question: "Relative clause: 'The woman ___ called you earlier is my manager.'", options: ["who", "which", "whose", "where"], answer: "who" },
+            { level: 'B1', question: "Grammar: 'Despite ___ the map, we got completely lost in the city.'", options: ["checking", "check", "to check", "checked"], answer: "checking" },
+            { level: 'B1', question: "Vocabulary: 'Due to severe weather, the outdoor concert was ___.'", options: ["cancelled", "postponed", "delayed", "renewed"], answer: "cancelled" },
+            { level: 'B1', listeningText: "Although the project was difficult, the team met all deadlines.", teacherScript: "Listen: 'Although the project was difficult, the team met all deadlines.'", question: "What did the team accomplish?", options: ["Met all deadlines", "Quit the project", "Asked for more time", "Failed the goal"], answer: "Met all deadlines" },
+            { level: 'B1', question: "Business English: 'We need to submit the quarterly sales report by ___.'", options: ["Friday", "next year", "yesterday", "ago"], answer: "Friday" },
+            { level: 'B1', question: "Grammar: 'I regret ___ you that your application was unsuccessful.'", options: ["to inform", "informing", "inform", "informed"], answer: "to inform" },
+            { level: 'B1', question: "Phrasal verb: 'Don't give ___ on your dreams even when it gets hard.'", options: ["up", "in", "off", "out"], answer: "up" },
+            { level: 'B1', question: "Connectors: 'He didn't get the job ___ he had great qualifications.'", options: ["although", "because", "despite", "so that"], answer: "although" },
+            { level: 'B1', question: "Complete: 'Could you please tell me where the nearest station ___?'", options: ["is", "it is", "is it", "was"], answer: "is" },
+            { level: 'B1', question: "Grammar: 'I'm looking forward to ___ you at the conference next month.'", options: ["meeting", "meet", "met", "to meet"], answer: "meeting" },
+            { level: 'B1', question: "Modals: 'You ___ bring an umbrella; it's not going to rain.'", options: ["don't have to", "mustn't", "can't", "shouldn't"], answer: "don't have to" },
+            { level: 'B1', question: "Passive: 'The package ___ delivered tomorrow afternoon.'", options: ["will be", "was", "is being", "has been"], answer: "will be" },
+            { level: 'B1', question: "Vocabulary: 'What is a synonym for 'essential'?'", options: ["crucial", "optional", "minor", "unnecessary"], answer: "crucial" },
+            { level: 'B1', question: "Complete: 'She suggested ___ a break after working for 4 hours.'", options: ["taking", "to take", "take", "took"], answer: "taking" },
+            { level: 'B1', question: "Relative clause: 'That's the restaurant ___ we celebrated your birthday.'", options: ["where", "which", "that", "when"], answer: "where" },
+            { level: 'B1', question: "Conditionals: 'If you heat ice, it ___.'", options: ["melts", "melted", "will melt", "would melt"], answer: "melts" },
+            { level: 'B1', question: "Work vocabulary: 'She was promoted because of her outstanding ___.'", options: ["performance", "perform", "performing", "performed"], answer: "performance" },
 
-            // MODULE 4: Mixed Future Challenge
-            {
-                title: "Module 4: Mixed Future Challenge",
-                color: "bg-amber-100 text-amber-700 border-amber-300",
-                questions: [
-                    {
-                        type: "multiple",
-                        mechanic: "Plan vs Prediction",
-                        question: "Look at the planned action: 'I bought my ticket. I ___ travel to Tokyo tomorrow!'",
-                        options: ["am going to", "might", "will", "would"],
-                        answer: "am going to"
-                    },
-                    {
-                        type: "unscramble",
-                        mechanic: "Unscramble Question",
-                        question: "Unscramble the interrogative future sentence:",
-                        words: ["Will", "robots", "help", "teachers", "in", "class?"],
-                        answer: "Will robots help teachers in class?"
-                    },
-                    {
-                        type: "reading",
-                        mechanic: "Reading Comprehension",
-                        readingText: "Techno City 2040: Next year, the city council is going to install solar panels on all school roofs. Experts predict that electric buses will transport all students. However, heavy snow might delay the project in winter.",
-                        question: "What is the planned action (be going to)?",
-                        options: ["Installing solar panels on school roofs", "Buying new computers", "Building a robot stadium", "Selling electric buses"],
-                        answer: "Installing solar panels on school roofs"
-                    },
-                    {
-                        type: "reading",
-                        mechanic: "Reading Comprehension",
-                        readingText: "Techno City 2040: Next year, the city council is going to install solar panels on all school roofs. Experts predict that electric buses will transport all students. However, heavy snow might delay the project in winter.",
-                        question: "What is mentioned as a possibility (might)?",
-                        options: ["Heavy snow delaying the project", "Buses running out of power", "Schools closing early", "Solar panels breaking"],
-                        answer: "Heavy snow delaying the project"
-                    },
-                    {
-                        type: "oddout",
-                        mechanic: "Odd One Out",
-                        question: "Find the odd future sentence (Grammar Error):",
-                        options: ["He is going to study coding.", "They will buy a computer.", "She might to play video games.", "I won't forget my password."],
-                        answer: "She might to play video games."
-                    },
-                    {
-                        type: "listening",
-                        mechanic: "Listening Challenge",
-                        listeningText: "Are you going to print your 3D model now or will you wait until tomorrow?",
-                        teacherScript: "Listen: 'Are you going to print your 3D model now or will you wait until tomorrow?'",
-                        question: "What technology tool is mentioned in the audio?",
-                        options: ["3D model printer", "VR headset", "Smartwatch", "Digital camera"],
-                        answer: "3D model printer"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Negative Interrogative",
-                        question: "Complete: '___ you going to delete those old video files?'",
-                        options: ["Aren't", "Isn't", "Won't", "Don't"],
-                        answer: "Aren't"
-                    },
-                    {
-                        type: "unscramble",
-                        mechanic: "Unscramble Negative",
-                        question: "Unscramble the negative prediction:",
-                        words: ["Computers", "won't", "replace", "human", "creativity."],
-                        answer: "Computers won't replace human creativity."
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Use Comparison",
-                        question: "Which form expresses a 100% planned intention?",
-                        options: ["be going to", "might", "might not", "maybe will"],
-                        answer: "be going to"
-                    },
-                    {
-                        type: "multiple",
-                        mechanic: "Tech Vocabulary",
-                        visualEmoji: "🌐",
-                        question: "Complete: 'Fast internet speeds ___ make online learning much smoother.'",
-                        options: ["will", "is going", "might to", "are"],
-                        answer: "will"
-                    }
-                ]
-            }
+            // B2 LEVEL (Questions 76 to 100 - Advanced Teens & Adults)
+            { level: 'B2', question: "Third Conditional: 'If we ___ earlier, we wouldn't have missed the flight.'", options: ["had left", "left", "have left", "would leave"], answer: "had left" },
+            { level: 'B2', question: "Past Perfect: 'By the time the police arrived, the thieves ___ escaped.'", options: ["had", "have", "were", "would"], answer: "had" },
+            { level: 'B2', question: "Deduction modal: 'She has been working for 14 hours straight. She ___ be exhausted.'", options: ["must", "can't", "should", "might"], answer: "must" },
+            { level: 'B2', listeningText: "The executive board unanimously voted to merge with the tech startup to boost innovation.", teacherScript: "Listen: 'The executive board unanimously voted to merge with the tech startup to boost innovation.'", question: "Why did the board vote to merge?", options: ["To boost innovation", "To cut salaries", "To close offices", "To fire staff"], answer: "To boost innovation" },
+            { level: 'B2', question: "Advanced Passive: 'The new policy is reported ___ implemented by next month.'", options: ["to be", "being", "been", "to have"], answer: "to be" },
+            { level: 'B2', question: "Inversion: 'Seldom ___ seen such a brilliant scientific discovery.'", options: ["have I", "I have", "did I", "I had"], answer: "have I" },
+            { level: 'B2', question: "Phrasal verb: 'We need to ___ a new solution to solve this bottleneck.'", options: ["come up with", "put up with", "run out of", "look down on"], answer: "come up with" },
+            { level: 'B2', question: "Subjunctive/Wish: 'I wish I ___ more time to finish the thesis project.'", options: ["had", "have", "would have", "have had"], answer: "had" },
+            { level: 'B2', question: "Mixed conditional: 'If I had studied medicine, I ___ a doctor today.'", options: ["would be", "will be", "had been", "would have been"], answer: "would be" },
+            { level: 'B2', question: "Causative form: 'We are going to have our house ___ next week.'", options: ["painted", "paint", "painting", "to paint"], answer: "painted" },
+            { level: 'B2', question: "Vocabulary: 'What does 'unprecedented' mean?'", options: ["Never done or known before", "Very expensive", "Happening frequently", "Illegal"], answer: "Never done or known before" },
+            { level: 'B2', listeningText: "Despite economic downturns, renewable energy sectors showed resilient growth throughout the fiscal year.", teacherScript: "Listen: 'Despite economic downturns, renewable energy sectors showed resilient growth throughout the fiscal year.'", question: "How did the renewable energy sector perform?", options: ["Showed resilient growth", "Suffered major losses", "Bankrupted", "Remained stagnant"], answer: "Showed resilient growth" },
+            { level: 'B2', question: "Advanced connectors: 'The company expanded rapidly; ___, profits declined slightly.'", options: ["however", "furthermore", "therefore", "consequently"], answer: "however" },
+            { level: 'B2', question: "Participle clause: '___ finished his speech, the CEO left the auditorium.'", options: ["Having", "Have", "After have", "Had"], answer: "Having" },
+            { level: 'B2', question: "Grammar: 'Hardly had the meeting started ___ the power went out.'", options: ["when", "than", "then", "after"], answer: "when" },
+            { level: 'B2', question: "Verb patterns: 'He confessed to ___ the documents without permission.'", options: ["taking", "take", "have taken", "took"], answer: "taking" },
+            { level: 'B2', question: "Vocabulary: 'Which word means 'to make something less severe'?'", options: ["mitigate", "aggravate", "deteriorate", "instigate"], answer: "mitigate" },
+            { level: 'B2', question: "Deduction past: 'You ___ seen John yesterday; he was in Tokyo on business!'", options: ["can't have", "must have", "should have", "might not"], answer: "can't have" },
+            { level: 'B2', question: "Advanced grammar: 'So intense ___ the storm that flight operations were suspended.'", options: ["was", "is", "were", "did"], answer: "was" },
+            { level: 'B2', question: "Formal vocabulary: 'The contract was deemed ___ due to missing signatures.'", options: ["null and void", "fair and square", "back and forth", "safe and sound"], answer: "null and void" },
+            { level: 'B2', question: "Advanced phrasal verb: 'He managed to ___ his point clearly during the debate.'", options: ["get across", "get over", "get by", "get along"], answer: "get across" },
+            { level: 'B2', question: "Unreal past: 'It's high time we ___ taking action on environmental issues.'", options: ["started", "start", "have started", "will start"], answer: "started" },
+            { level: 'B2', question: "Grammar: 'No sooner had she arrived ___ the fire alarm sounded.'", options: ["than", "when", "then", "after"], answer: "than" },
+            { level: 'B2', question: "Vocabulary: 'An 'ephemeral' moment is one that is extremely ___.'", options: ["short-lived", "dangerous", "valuable", "loud"], answer: "short-lived" },
+            { level: 'B2', question: "Complex grammar: 'Were it not for your assistance, we ___ succeeded.'", options: ["wouldn't have", "won't have", "didn't have", "haven't"], answer: "wouldn't have" }
         ];
 
-        // State variables
-        let activeModuleIdx = 0;
-        let currentQuestionIdx = 0;
-        let moduleAnswers = [];
-        let selectedUnscrambleWords = [];
+        // Global State Variables
+        let questions = [];
+        let currentIdx = 0;
+        let consecutiveErrors = 0;
+        let userAnswers = [];
+        let isTerminatedByStrikes = false;
 
-        // DOM Elements
-        const moduleSelectScreen = document.getElementById('module-select-screen');
-        const quizScreen = document.getElementById('quiz-screen');
-        const resultsScreen = document.getElementById('results-screen');
-        const moduleBadge = document.getElementById('module-badge');
-        const progressBar = document.getElementById('progress-bar');
-        const mechanicTag = document.getElementById('mechanic-tag');
-        const listeningBox = document.getElementById('listening-box');
-        const teacherScript = document.getElementById('teacher-script');
-        const readingBox = document.getElementById('reading-box');
-        const readingText = document.getElementById('reading-text');
-        const visualCard = document.getElementById('visual-card');
-        const visualEmoji = document.getElementById('visual-emoji');
-        const questionText = document.getElementById('question-text');
-        const optionsContainer = document.getElementById('options-container');
-        const unscrambleContainer = document.getElementById('unscramble-container');
-        const unscrambleSlots = document.getElementById('unscramble-slots');
-        const unscrambleBank = document.getElementById('unscramble-bank');
-        const feedbackBox = document.getElementById('feedback-box');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
+        // Global Audio Context
+        let audioCtx = null;
 
-        // Web Audio API Sound System
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function getAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
 
         function playSound(type) {
             try {
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
+                const ctx = getAudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
                 osc.connect(gain);
-                gain.connect(audioCtx.destination);
+                gain.connect(ctx.destination);
 
                 if (type === 'click') {
                     osc.type = 'sine';
-                    osc.frequency.setValueAtTime(450, audioCtx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(750, audioCtx.currentTime + 0.04);
-                    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.04);
+                    osc.frequency.setValueAtTime(400, ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.04);
+                    gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.04);
                     osc.start();
-                    osc.stop(audioCtx.currentTime + 0.04);
+                    osc.stop(ctx.currentTime + 0.04);
                 } else if (type === 'correct') {
                     osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
-                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.08); // E5
-                    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+                    osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+                    osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.08);
+                    gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
                     osc.start();
-                    osc.stop(audioCtx.currentTime + 0.2);
+                    osc.stop(ctx.currentTime + 0.2);
                 } else if (type === 'wrong') {
                     osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(220, audioCtx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.15);
-                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+                    osc.frequency.setValueAtTime(220, ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.15);
+                    gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
                     osc.start();
-                    osc.stop(audioCtx.currentTime + 0.15);
+                    osc.stop(ctx.currentTime + 0.15);
                 }
             } catch (e) {
-                // Ignore audio block
+                // Ignore web audio restrictions
             }
         }
 
-        // Text-to-Speech Engine
+        function prepareQuestions() {
+            questions = rawQuestions.map(item => {
+                const optionsCopy = [...item.options];
+                for (let i = optionsCopy.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [optionsCopy[i], optionsCopy[j]] = [optionsCopy[j], optionsCopy[i]];
+                }
+                return {
+                    ...item,
+                    shuffledOptions: optionsCopy
+                };
+            });
+            userAnswers = new Array(questions.length).fill(null);
+        }
+
         function speakListeningText() {
-            const mod = modulesData[activeModuleIdx];
-            const q = mod.questions[currentQuestionIdx];
-            if (!q.listeningText) return;
+            if (!questions[currentIdx] || !questions[currentIdx].listeningText) return;
+            const q = questions[currentIdx];
 
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
                 const utterance = new SpeechSynthesisUtterance(q.listeningText);
                 utterance.lang = 'en-US';
-                utterance.rate = 0.85;
+                utterance.rate = (q.level === 'A1' || q.level === 'A2') ? 0.85 : 0.95;
                 window.speechSynthesis.speak(utterance);
             }
         }
 
-        function selectModule(moduleIdx) {
+        function startQuiz() {
             playSound('click');
-            activeModuleIdx = moduleIdx;
-            currentQuestionIdx = 0;
-            const qLength = modulesData[activeModuleIdx].questions.length;
-            moduleAnswers = new Array(qLength).fill(null);
+            prepareQuestions();
 
-            moduleSelectScreen.classList.add('hidden');
+            document.getElementById('start-screen').classList.add('hidden');
+            const quizScreen = document.getElementById('quiz-screen');
             quizScreen.classList.remove('hidden');
             quizScreen.classList.add('flex');
+
+            currentIdx = 0;
+            consecutiveErrors = 0;
+            isTerminatedByStrikes = false;
             renderQuestion();
         }
 
-        function returnToModules() {
-            playSound('click');
-            quizScreen.classList.add('hidden');
-            quizScreen.classList.remove('flex');
-            resultsScreen.classList.add('hidden');
-            resultsScreen.classList.remove('flex');
-            moduleSelectScreen.classList.remove('hidden');
-        }
-
         function renderQuestion() {
-            const mod = modulesData[activeModuleIdx];
-            const q = mod.questions[currentQuestionIdx];
+            if (!questions || questions.length === 0) return;
+            const q = questions[currentIdx];
 
-            moduleBadge.textContent = `Module ${activeModuleIdx + 1} • Item ${currentQuestionIdx + 1} of 10`;
-            moduleBadge.className = `px-3 py-1 rounded-full text-xs sm:text-sm font-bold border ${mod.color}`;
+            let badgeClass = "bg-blue-100 text-blue-700 border-blue-300";
+            if (q.level === 'A2') badgeClass = "bg-green-100 text-green-700 border-green-300";
+            if (q.level === 'B1') badgeClass = "bg-orange-100 text-orange-700 border-orange-300";
+            if (q.level === 'B2') badgeClass = "bg-purple-100 text-purple-700 border-purple-300";
 
-            progressBar.style.width = `${((currentQuestionIdx + 1) / 10) * 100}%`;
-            mechanicTag.textContent = q.mechanic || "Grammar Practice";
+            const levelBadge = document.getElementById('level-badge');
+            levelBadge.textContent = `Level ${q.level} • Item ${currentIdx + 1} of 100`;
+            levelBadge.className = `px-3 py-1 rounded-full text-xs sm:text-sm font-bold border ${badgeClass}`;
+            
+            document.getElementById('question-tracker').textContent = `Progress: ${currentIdx + 1} / 100`;
+            document.getElementById('progress-bar').style.width = `${((currentIdx + 1) / 100) * 100}%`;
 
-            // Hide all specialized containers first
-            listeningBox.classList.add('hidden');
-            readingBox.classList.add('hidden');
-            visualCard.classList.add('hidden');
-            unscrambleContainer.classList.add('hidden');
-            optionsContainer.classList.remove('hidden');
-            feedbackBox.classList.add('hidden');
+            const audienceBanner = document.getElementById('audience-banner');
+            if (q.level === 'B1' || q.level === 'B2') {
+                audienceBanner.classList.remove('hidden');
+            } else {
+                audienceBanner.classList.add('hidden');
+            }
 
-            // Listening Layout
-            if (q.type === 'listening') {
+            const listeningBox = document.getElementById('listening-box');
+            if (q.listeningText) {
                 listeningBox.classList.remove('hidden');
-                teacherScript.textContent = `(${q.teacherScript})`;
+                document.getElementById('teacher-script').textContent = `(${q.teacherScript})`;
+            } else {
+                listeningBox.classList.add('hidden');
             }
 
-            // Reading Layout
-            if (q.type === 'reading') {
-                readingBox.classList.remove('hidden');
-                readingText.textContent = q.readingText;
-            }
-
-            // Visual Emoji Layout
+            const visualCard = document.getElementById('visual-card');
             if (q.visualEmoji) {
                 visualCard.classList.remove('hidden');
-                visualEmoji.textContent = q.visualEmoji;
-            }
-
-            questionText.textContent = q.question;
-
-            // Unscramble Layout vs Standard Options
-            if (q.type === 'unscramble') {
-                optionsContainer.classList.add('hidden');
-                unscrambleContainer.classList.remove('hidden');
-                renderUnscrambleMechanic(q);
+                document.getElementById('visual-emoji').textContent = q.visualEmoji;
             } else {
-                renderStandardOptions(q);
+                visualCard.classList.add('hidden');
             }
 
-            // Navigation State
-            prevBtn.disabled = currentQuestionIdx === 0;
-            nextBtn.disabled = moduleAnswers[currentQuestionIdx] === null;
-            nextBtn.textContent = currentQuestionIdx === 9 ? 'Finish Module 🏆' : 'Next ➡️';
-        }
+            document.getElementById('question-text').textContent = q.question;
 
-        // Standard Multiple Choice Renderer
-        function renderStandardOptions(q) {
+            const optionsContainer = document.getElementById('options-container');
             optionsContainer.innerHTML = '';
-            q.options.forEach(optText => {
-                const isSelected = moduleAnswers[currentQuestionIdx] === optText;
+            q.shuffledOptions.forEach((optText) => {
+                const isSelected = userAnswers[currentIdx] === optText;
                 const btn = document.createElement('button');
-                btn.className = `btn-bounce w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 font-medium text-sm sm:text-base flex items-center justify-between ${
+                btn.className = `option-btn w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 font-medium text-sm sm:text-base flex items-center justify-between ${
                     isSelected 
-                        ? 'border-indigo-600 bg-indigo-50 text-indigo-900 shadow-md font-bold' 
-                        : 'border-gray-200 bg-white hover:border-indigo-300 text-gray-700'
+                        ? 'border-purple-600 bg-purple-50 text-purple-900 shadow-md font-bold' 
+                        : 'border-gray-200 bg-white hover:border-purple-300 text-gray-700'
                 }`;
-                btn.onclick = () => selectStandardOption(optText);
+                btn.onclick = () => selectOption(optText);
 
                 btn.innerHTML = `
                     <span>${optText}</span>
                     <span class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs ml-2 ${
-                        isSelected ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-gray-300'
+                        isSelected ? 'border-purple-600 bg-purple-600 text-white' : 'border-gray-300'
                     }">${isSelected ? '✓' : ''}</span>
                 `;
                 optionsContainer.appendChild(btn);
             });
+
+            document.getElementById('prev-btn').disabled = currentIdx === 0;
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.disabled = userAnswers[currentIdx] === null;
+            nextBtn.textContent = currentIdx === questions.length - 1 ? 'Finish & See Results 🏆' : 'Next ➡️';
         }
 
-        function selectStandardOption(optText) {
+        function selectOption(selectedText) {
             playSound('click');
-            moduleAnswers[currentQuestionIdx] = optText;
-            renderQuestion();
-        }
-
-        // Unscramble Mechanic Renderer
-        function renderUnscrambleMechanic(q) {
-            if (!selectedUnscrambleWords[currentQuestionIdx]) {
-                selectedUnscrambleWords[currentQuestionIdx] = [];
-            }
-
-            const currentSelected = selectedUnscrambleWords[currentQuestionIdx];
-
-            // Render Slots
-            unscrambleSlots.innerHTML = '';
-            if (currentSelected.length === 0) {
-                unscrambleSlots.innerHTML = '<span class="text-xs text-indigo-400 font-normal">Click words below to build your sentence...</span>';
-            } else {
-                currentSelected.forEach((word, idx) => {
-                    const chip = document.createElement('button');
-                    chip.className = 'bg-indigo-600 text-white text-xs sm:text-sm px-3 py-1.5 rounded-xl font-bold shadow flex items-center gap-1';
-                    chip.innerHTML = `<span>${word}</span> <span class="text-xs opacity-70">✕</span>`;
-                    chip.onclick = () => removeUnscrambleWord(idx);
-                    unscrambleSlots.appendChild(chip);
-                });
-            }
-
-            // Render Available Word Chips
-            unscrambleBank.innerHTML = '';
-            q.words.forEach(word => {
-                const usedCount = currentSelected.filter(w => w === word).length;
-                const totalInQuestion = q.words.filter(w => w === word).length;
-
-                if (usedCount < totalInQuestion) {
-                    const btn = document.createElement('button');
-                    btn.className = 'bg-white hover:bg-indigo-100 border-2 border-indigo-300 text-indigo-900 font-bold px-3 py-1.5 rounded-xl text-xs sm:text-sm shadow-sm btn-bounce';
-                    btn.textContent = word;
-                    btn.onclick = () => addUnscrambleWord(word);
-                    unscrambleBank.appendChild(btn);
-                }
-            });
-
-            // Update user answer string
-            const formedSentence = currentSelected.join(' ');
-            if (currentSelected.length === q.words.length) {
-                moduleAnswers[currentQuestionIdx] = formedSentence;
-                nextBtn.disabled = false;
-            } else {
-                moduleAnswers[currentQuestionIdx] = null;
-                nextBtn.disabled = true;
-            }
-        }
-
-        function addUnscrambleWord(word) {
-            playSound('click');
-            if (!selectedUnscrambleWords[currentQuestionIdx]) selectedUnscrambleWords[currentQuestionIdx] = [];
-            selectedUnscrambleWords[currentQuestionIdx].push(word);
-            renderQuestion();
-        }
-
-        function removeUnscrambleWord(idx) {
-            playSound('click');
-            selectedUnscrambleWords[currentQuestionIdx].splice(idx, 1);
+            userAnswers[currentIdx] = selectedText;
             renderQuestion();
         }
 
         function nextQuestion() {
-            const q = modulesData[activeModuleIdx].questions[currentQuestionIdx];
-            const isCorrect = moduleAnswers[currentQuestionIdx] === q.answer;
+            const q = questions[currentIdx];
+            const isCorrect = userAnswers[currentIdx] === q.answer;
 
             if (isCorrect) {
                 playSound('correct');
+                consecutiveErrors = 0;
             } else {
                 playSound('wrong');
+                consecutiveErrors++;
             }
 
-            if (currentQuestionIdx < 9) {
-                currentQuestionIdx++;
+            if (consecutiveErrors >= 3) {
+                isTerminatedByStrikes = true;
+                showResults();
+                return;
+            }
+
+            if (currentIdx < questions.length - 1) {
+                currentIdx++;
                 renderQuestion();
             } else {
-                showModuleResults();
+                showResults();
             }
         }
 
         function previousQuestion() {
             playSound('click');
-            if (currentQuestionIdx > 0) {
-                currentQuestionIdx--;
+            if (currentIdx > 0) {
+                currentIdx--;
                 renderQuestion();
             }
         }
 
-        function showModuleResults() {
+        function showResults() {
+            const quizScreen = document.getElementById('quiz-screen');
             quizScreen.classList.add('hidden');
             quizScreen.classList.remove('flex');
+            
+            const resultsScreen = document.getElementById('results-screen');
             resultsScreen.classList.remove('hidden');
             resultsScreen.classList.add('flex');
 
-            const mod = modulesData[activeModuleIdx];
-            let correctCount = 0;
+            const totalAnswered = currentIdx + 1;
+            let totalCorrect = 0;
+            const scoresByLevel = { A1: { c: 0, t: 0 }, A2: { c: 0, t: 0 }, B1: { c: 0, t: 0 }, B2: { c: 0, t: 0 } };
 
-            mod.questions.forEach((q, idx) => {
-                if (moduleAnswers[idx] === q.answer) {
-                    correctCount++;
+            for (let i = 0; i <= currentIdx; i++) {
+                const q = questions[i];
+                scoresByLevel[q.level].t++;
+                if (userAnswers[i] === q.answer) {
+                    scoresByLevel[q.level].c++;
+                    totalCorrect++;
                 }
-            });
-
-            document.getElementById('module-result-title').textContent = `${mod.title} - Diagnostic Report`;
-            document.getElementById('final-score').textContent = `${correctCount} / 10`;
-
-            const badge = document.getElementById('feedback-badge');
-            if (correctCount >= 9) {
-                badge.textContent = "🌟 Outstanding! Future Tenses Master!";
-                badge.className = "inline-block px-4 py-1.5 rounded-full text-sm font-bold bg-green-400 text-green-950 shadow mt-1";
-            } else if (correctCount >= 6) {
-                badge.textContent = "👍 Good Job! Great Progress!";
-                badge.className = "inline-block px-4 py-1.5 rounded-full text-sm font-bold bg-yellow-400 text-yellow-950 shadow mt-1";
-            } else {
-                badge.textContent = "💪 Keep Practicing! You can do it!";
-                badge.className = "inline-block px-4 py-1.5 rounded-full text-sm font-bold bg-orange-400 text-orange-950 shadow mt-1";
             }
+
+            const stopReason = document.getElementById('stop-reason');
+            if (isTerminatedByStrikes) {
+                stopReason.textContent = "⚠️ Adaptive Stop: Diagnostic paused after 3 consecutive wrong answers to establish comfortable level ceiling.";
+                stopReason.className = "text-xs sm:text-sm text-red-600 font-bold mb-4 bg-red-50 p-2 rounded-xl border border-red-200";
+            } else {
+                stopReason.textContent = "Official Edukinglish Assessment Report (Full 100 Questions Completed)";
+                stopReason.className = "text-xs sm:text-sm text-gray-500 mb-4";
+            }
+
+            document.getElementById('final-score-text').textContent = `Questions Answered: ${totalAnswered} / 100 • Score: ${totalCorrect}/${totalAnswered}`;
+
+            let determinedLevel = "A1 (Beginner)";
+            if (totalCorrect >= 15) determinedLevel = "A1.2 (Upper Starter)";
+            if (totalCorrect >= 25) determinedLevel = "A2 (Elementary)";
+            if (totalCorrect >= 45) determinedLevel = "B1 (Intermediate)";
+            if (totalCorrect >= 70) determinedLevel = "B2 (Upper-Intermediate)";
+
+            document.getElementById('final-level').textContent = `Diagnostic Level: ${determinedLevel}`;
+            document.getElementById('placement-desc').textContent = `Student answered ${totalCorrect} out of ${totalAnswered} questions correctly. Recommended placement: Edukinglish Level ${determinedLevel}.`;
+
+            ['A1', 'A2', 'B1', 'B2'].forEach(lvl => {
+                const c = scoresByLevel[lvl].c;
+                const t = scoresByLevel[lvl].t || 25;
+                const pct = (c / t) * 100;
+                document.getElementById(`lvl-${lvl.toLowerCase()}-score`).textContent = `${c}/${t}`;
+                document.getElementById(`lvl-${lvl.toLowerCase()}-bar`).style.width = `${pct}%`;
+            });
 
             triggerConfetti();
         }
 
-        function restartModule() {
-            playSound('click');
-            selectModule(activeModuleIdx);
-        }
-
-        function sendModuleWhatsApp() {
+        function sendToWhatsApp() {
             const studentName = document.getElementById('student-name').value.trim() || 'Estudiante';
-            const modTitle = modulesData[activeModuleIdx].title;
-            const scoreText = document.getElementById('final-score').textContent;
-            const phone = '+522211620366';
+            let phone = document.getElementById('teacher-phone').value.trim().replace(/[^0-9+]/g, '');
+            const finalLevel = document.getElementById('final-level').textContent;
+            const scoreText = document.getElementById('final-score-text').textContent;
+
+            if (!phone) phone = '+522211620366';
 
             const message = encodeURIComponent(
-                `👑 *Edukinglish Speaking Hub - Práctica de Futuro (A2)*\n\n` +
+                `👑 *Edukinglish Speaking Hub - Examen Diagnóstico*\n\n` +
                 `👤 *Alumno:* ${studentName}\n` +
-                `📚 *Módulo:* ${modTitle}\n` +
-                `🎯 *Calificación:* ${scoreText}\n\n` +
-                `¡Excelente trabajo practicando Will, Going to y Might!`
+                `📊 *${finalLevel}*\n` +
+                `🎯 *Detalle:* ${scoreText}\n\n` +
+                `¡Listo para comenzar clases!`
             );
 
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
 
-        // Confetti Effect
+        function sendByEmail() {
+            const studentName = document.getElementById('student-name').value.trim() || 'Estudiante';
+            const email = document.getElementById('teacher-email').value.trim() || 'edukinglish@gmail.com';
+            const finalLevel = document.getElementById('final-level').textContent;
+            const scoreText = document.getElementById('final-score-text').textContent;
+
+            const subject = encodeURIComponent(`Resultado Diagnóstico Inglés - ${studentName}`);
+            const body = encodeURIComponent(
+                `Hola Edukinglish Speaking Hub,\n\n` +
+                `Adjunto el resultado de la prueba diagnóstica de inglés adaptativa:\n\n` +
+                `Nombre del Alumno: ${studentName}\n` +
+                `Diagnóstico: ${finalLevel}\n` +
+                `Desempeño: ${scoreText}\n\n` +
+                `Saludos.`
+            );
+
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        }
+
+        function restartQuiz() {
+            playSound('click');
+            const resultsScreen = document.getElementById('results-screen');
+            resultsScreen.classList.add('hidden');
+            resultsScreen.classList.remove('flex');
+            document.getElementById('start-screen').classList.remove('hidden');
+        }
+
+        function printReport() {
+            window.print();
+        }
+
         function triggerConfetti() {
             const canvas = document.getElementById('confetti-canvas');
             const ctx = canvas.getContext('2d');
@@ -916,7 +673,7 @@
             canvas.height = window.innerHeight;
 
             const particles = [];
-            const colors = ['#38BDF8', '#818CF8', '#C084FC', '#FACC15', '#4ADE80'];
+            const colors = ['#4F46E5', '#7C3AED', '#C026D3', '#FBBF24', '#10B981'];
 
             for (let i = 0; i < 70; i++) {
                 particles.push({
